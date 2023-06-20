@@ -11,7 +11,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>Springboot-kafka-realworld.project</groupId>
-	<artifactId>springboot-kafka-real-world-project</artifactId>
+	<artifactId>SAFinalProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-kafka-real-world-project</name>
 	<description>Demo project for Spring Boot</description>
