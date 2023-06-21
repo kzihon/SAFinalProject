@@ -22,32 +22,17 @@ public class WikimediaChangesProducer {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-
     public void sendMessage() throws InterruptedException {
-        String createTopic = "wikimedia-create";
-        String changeTopic = "wikimedia-update";
-        String deleteTopic = "wikimedia-delete";
+        String mainTopic = "RTDIS_1";
 
-        EventHandler createEventHandler = new WikimediaChangesHandler(kafkaTemplate,createTopic);
-        String createUrl = "https://stream.wikimedia.org/v2/stream/page-create";
+        EventHandler eventHandler = new WikimediaChangesHandler(kafkaTemplate, mainTopic);
+        String url = "https://stream.wikimedia.org/v2/stream/page-create,page-delete";
 
-        EventHandler updateEventHandler = new WikimediaChangesHandler(kafkaTemplate,changeTopic);
-        String changeUrl = "https://stream.wikimedia.org/v2/stream/page-links-change";
+        EventSource.Builder builder = new EventSource.Builder(eventHandler, URI.create(url));
 
-        EventHandler deleteEventHandler = new WikimediaChangesHandler(kafkaTemplate,deleteTopic);
-        String deleteUrl = "https://stream.wikimedia.org/v2/stream/page-delete";
+        EventSource eventSource = builder.build();
 
-        EventSource.Builder createBuilder = new EventSource.Builder(createEventHandler, URI.create(createUrl));
-        EventSource.Builder changeBuilder = new EventSource.Builder(updateEventHandler, URI.create(changeUrl));
-        EventSource.Builder deleteBuilder = new EventSource.Builder(deleteEventHandler, URI.create(deleteUrl));
-
-        EventSource createEventSource = createBuilder.build();
-        EventSource changeEventSource = changeBuilder.build();
-        EventSource deleteEventSource = deleteBuilder.build();
-
-        createEventSource.start();
-        changeEventSource.start();
-        deleteEventSource.start();
+        eventSource.start();
 
         TimeUnit.MINUTES.sleep(10);
     }
