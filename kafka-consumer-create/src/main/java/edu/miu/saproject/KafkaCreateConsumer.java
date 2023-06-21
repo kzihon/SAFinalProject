@@ -1,4 +1,4 @@
-package net.javaguides.springboot;
+package edu.miu.saproject;
 
 
 import org.slf4j.Logger;
@@ -7,17 +7,17 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KafkaDatabaseConsumer {
+public class KafkaCreateConsumer {
 
 //    private WikimediaDataRepo wikimediaDataRepo;
 //    public KafkaDatabaseConsumer(WikimediaDataRepo wikimediaDataRepo){
 //        this.wikimediaDataRepo = wikimediaDataRepo;
 //    }
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(KafkaDatabaseConsumer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(KafkaCreateConsumer.class);
 
     @KafkaListener(
-            topics = "wikimedia-update",
+            topics = "wikimedia-create",
             groupId = "myGroup")
     public void consume(String eventMessage){
 

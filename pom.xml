@@ -17,6 +17,9 @@
 <!--		<module>kafka-producer-wikimedia</module>-->
 		<module>kafka-producer-wikimediak</module>
 		<module>kafka-consumer-database</module>
+        <module>kafka-consumer-create</module>
+		<module>kafka-consumer-delete</module>
+		<module>kafka-consumer-update</module>
 	</modules>
 	<packaging>pom</packaging>
 <!--	 when u need to add multiple modules in one project and u need to add parent pom.xml in all modules-->

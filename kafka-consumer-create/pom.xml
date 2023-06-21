@@ -7,18 +7,8 @@
         <artifactId>Springboot_kafka_realtime_producer</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-data-jdbc</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-data-jpa</artifactId>-->
-<!--        </dependency>-->
-    </dependencies>
     <groupId>org.example</groupId>
-    <artifactId>kafka-consumer-database</artifactId>
-    <name>Archetype - kafka-consumer-database</name>
+    <artifactId>kafka-consumer-create</artifactId>
+    <name>Archetype - kafka-consumer-create</name>
     <url>http://maven.apache.org</url>
 </project>
